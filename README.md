@@ -1,7 +1,11 @@
-# Make the candy crash game
+# 🍬 Make the candy crash game
 
 ---
 
-I make candy crash game using React js  play with my free time hour 🎲
+I make candy crash game using React js  play with my free time hour ⏲️
 
 ---
+
+## 🚀Feature -
+
+1. 
