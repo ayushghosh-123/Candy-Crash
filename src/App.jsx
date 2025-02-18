@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback } from 'react';
-import blueCandy from './image/blue-candy.png';
-import greenCandy from './image/green-candy.png';
-import orangeCandy from './image/orange-candy.png';
-import purpleCandy from './image/purple-candy.png';
-import redCandy from './image/red-candy.png';
-import yellowCandy from './image/yellow-candy.png';
+import blueCandy from './image/blue-candy2.png'; 
+import greenCandy from './image/green-candy2.png'; 
+import orangeCandy from './image/orange-candy.png'; 
+import purpleCandy from './image/purple-candy.png'; 
+import redCandy from './image/red-candy.png'; 
+import yellowCandy from './image/yellow-candy.png'; 
 import blank from './image/blank.png';
 
 const width = 8;
