@@ -7,96 +7,126 @@ const App = () => {
   const [CurrentColorArrangement, setCurrentColorArrangement] = useState([]);
 
   const checkForColumnOfFour = useCallback(() => {
-    const updatedArrangement = [...CurrentColorArrangement];
-    let changed = false;
+    setCurrentColorArrangement((prevArrangement) => {
+      const updatedArrangement = [...prevArrangement];
+      let changed = false;
 
-    for (let i = 0; i < 39; i++) {
-      const columnOfFour = [i, i + width, i + width * 2, i + width * 3];
-      const decidedColor = updatedArrangement[i];
+      for (let i = 0; i < 39; i++) {
+        const columnOfFour = [i, i + width, i + width * 2, i + width * 3];
+        const decidedColor = updatedArrangement[i];
 
-      if (
-        decidedColor &&
-        columnOfFour.every((square) => updatedArrangement[square] === decidedColor)
-      ) {
-        columnOfFour.forEach((square) => (updatedArrangement[square] = " "));
-        changed = true;
+        if (
+          decidedColor &&
+          columnOfFour.every((square) => updatedArrangement[square] === decidedColor)
+        ) {
+          columnOfFour.forEach((square) => (updatedArrangement[square] = " "));
+          changed = true;
+        }
       }
-    }
 
-    if (changed) setCurrentColorArrangement(updatedArrangement);
-  }, [CurrentColorArrangement]);
+      return changed ? updatedArrangement : prevArrangement;
+    });
+  }, []);
 
   const checkForColumnOfThree = useCallback(() => {
-    const updatedArrangement = [...CurrentColorArrangement];
-    let changed = false;
+    setCurrentColorArrangement((prevArrangement) => {
+      const updatedArrangement = [...prevArrangement];
+      let changed = false;
 
-    for (let i = 0; i < 47; i++) {
-      const columnOfThree = [i, i + width, i + width * 2];
-      const decidedColor = updatedArrangement[i];
+      for (let i = 0; i < 47; i++) {
+        const columnOfThree = [i, i + width, i + width * 2];
+        const decidedColor = updatedArrangement[i];
 
-      if (
-        decidedColor &&
-        columnOfThree.every((square) => updatedArrangement[square] === decidedColor)
-      ) {
-        columnOfThree.forEach((square) => (updatedArrangement[square] = " "));
-        changed = true;
+        if (
+          decidedColor &&
+          columnOfThree.every((square) => updatedArrangement[square] === decidedColor)
+        ) {
+          columnOfThree.forEach((square) => (updatedArrangement[square] = " "));
+          changed = true;
+        }
       }
-    }
 
-    if (changed) setCurrentColorArrangement(updatedArrangement);
-  }, [CurrentColorArrangement]);
+      return changed ? updatedArrangement : prevArrangement;
+    });
+  }, []);
 
   const checkForRowOfThree = useCallback(() => {
-    const updatedArrangement = [...CurrentColorArrangement];
-    let changed = false;
+    setCurrentColorArrangement((prevArrangement) => {
+      const updatedArrangement = [...prevArrangement];
+      let changed = false;
 
-    for (let i = 0; i < 64; i++) {
-      const rowOfThree = [i, i + 1, i + 2];
-      const decidedColor = updatedArrangement[i];
-      const notValid = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55, 62, 63];
+      for (let i = 0; i < 64; i++) {
+        const rowOfThree = [i, i + 1, i + 2];
+        const decidedColor = updatedArrangement[i];
+        const notValid = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55, 62, 63];
 
-      if (notValid.includes(i)) continue;
+        if (notValid.includes(i)) continue;
 
-      if (
-        decidedColor &&
-        rowOfThree.every((square) => updatedArrangement[square] === decidedColor)
-      ) {
-        rowOfThree.forEach((square) => (updatedArrangement[square] = " "));
-        changed = true;
+        if (
+          decidedColor &&
+          rowOfThree.every((square) => updatedArrangement[square] === decidedColor)
+        ) {
+          rowOfThree.forEach((square) => (updatedArrangement[square] = " "));
+          changed = true;
+        }
       }
-    }
 
-    if (changed) setCurrentColorArrangement(updatedArrangement);
-  }, [CurrentColorArrangement]);
+      return changed ? updatedArrangement : prevArrangement;
+    });
+  }, []);
 
   const checkForRowOfFour = useCallback(() => {
-    const updatedArrangement = [...CurrentColorArrangement];
-    let changed = false;
+    setCurrentColorArrangement((prevArrangement) => {
+      const updatedArrangement = [...prevArrangement];
+      let changed = false;
 
-    for (let i = 0; i < 64; i++) {
-      const rowOfFour = [i, i + 1, i + 2, i + 3];
-      const decidedColor = updatedArrangement[i];
-      const notValid = [5, 6, 7, 13, 14, 15, 21, 22, 23, 29, 30, 31, 37, 38, 39, 45, 46, 47, 53, 54, 55, 61, 62, 63];
+      for (let i = 0; i < 64; i++) {
+        const rowOfFour = [i, i + 1, i + 2, i + 3];
+        const decidedColor = updatedArrangement[i];
+        const notValid = [5, 6, 7, 13, 14, 15, 21, 22, 23, 29, 30, 31, 37, 38, 39, 45, 46, 47, 53, 54, 55, 61, 62, 63];
 
-      if (notValid.includes(i)) continue;
+        if (notValid.includes(i)) continue;
 
-      if (
-        decidedColor &&
-        rowOfFour.every((square) => updatedArrangement[square] === decidedColor)
-      ) {
-        rowOfFour.forEach((square) => (updatedArrangement[square] = " "));
-        changed = true;
+        if (
+          decidedColor &&
+          rowOfFour.every((square) => updatedArrangement[square] === decidedColor)
+        ) {
+          rowOfFour.forEach((square) => (updatedArrangement[square] = " "));
+          changed = true;
+        }
       }
-    }
 
-    if (changed) setCurrentColorArrangement(updatedArrangement);
-  }, [CurrentColorArrangement]);
+      return changed ? updatedArrangement : prevArrangement;
+    });
+  }, []);
+
+  const moveIntosquarBelow = useCallback(() => {
+    setCurrentColorArrangement((prevArrangement) => {
+      const updatedArrangement = [...prevArrangement];
+
+      for (let i = 0; i < 64 - width; i++) {
+        const firstRow = [0, 1, 2, 3, 4, 5, 6, 7];
+        const isFirstRow = firstRow.includes(i);
+
+        if (isFirstRow && updatedArrangement[i] === " ") {
+          let randomNumber = Math.floor(Math.random() * CandyColors.length);
+          updatedArrangement[i] = CandyColors[randomNumber];
+        }
+
+        if (updatedArrangement[i + width] === " ") {
+          updatedArrangement[i + width] = updatedArrangement[i];
+          updatedArrangement[i] = " ";
+        }
+      }
+
+      return updatedArrangement;
+    });
+  }, []);
 
   const createBoard = () => {
     const randomColorArrangement = [];
     for (let i = 0; i < width * width; i++) {
-      const randomColor =
-        CandyColors[Math.floor(Math.random() * CandyColors.length)];
+      const randomColor = CandyColors[Math.floor(Math.random() * CandyColors.length)];
       randomColorArrangement.push(randomColor);
     }
     setCurrentColorArrangement(randomColorArrangement);
@@ -112,6 +142,7 @@ const App = () => {
       checkForRowOfFour();
       checkForColumnOfThree();
       checkForRowOfThree();
+      moveIntosquarBelow();
     }, 100);
 
     return () => clearInterval(timer);
@@ -120,7 +151,7 @@ const App = () => {
     checkForRowOfFour,
     checkForColumnOfThree,
     checkForRowOfThree,
-    CurrentColorArrangement,
+    moveIntosquarBelow,
   ]);
 
   return (
@@ -146,4 +177,3 @@ const App = () => {
 };
 
 export default App;
-
